@@ -1,0 +1,21 @@
+plugins {
+    id 'org.springframework.boot' version '2.4.1'
+    id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+}
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    springBootGrpcVersion = '2.10.1.RELEASE'
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation("net.devh:grpc-server-spring-boot-starter:${springBootGrpcVersion}")
+    implementation project(':grpc-lib')
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+}
